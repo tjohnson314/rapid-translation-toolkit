@@ -1,4 +1,5 @@
 #!/bin/bash
-pip install -U nltk
-pip install -U gensim
+Echo "Importing python libraries..."
 python -m nltk.downloader punkt
+python -c "import nltk"
+python -c "import gensim"
