@@ -9,13 +9,12 @@ if [ -z "${INSTALL_ROOT}" ] || [ -z "${INSTALL_USER}" ]; then
 fi
 
 #Install mgiza prereqs
-apt-get update && apt-get install -y git make build-essential clang libboost-all-dev cmake unzip libblas-dev liblapack-dev libatlas-base-dev gfortran
+apt-get update && apt-get install -y git make build-essential clang libboost-all-dev cmake unzip
 
 #Install gensim/NLTK prereqs
-apt-get install -y python-pip
-pip install -U nltk
-pip install -U scipy
 pip install -U numpy
+pip install -U scipy
+pip install -U nltk
 pip install -U gensim
 python -m nltk.downloader punkt
 

@@ -1,5 +1,5 @@
 #!/bin/bash
-Echo "Importing python libraries..."
+echo "Importing python libraries..."
 python -m nltk.downloader punkt
 python -c "import nltk"
 python -c "import scipy"
