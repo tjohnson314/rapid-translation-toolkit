@@ -20,7 +20,7 @@ emalignmentdependencies 2
 emalsmooth 0.2
 emprobforempty 0.4
 emsmoothhmm 2
-hmmdumpfrequency 0
+hmmdumpfrequency 1
 hmmiterations 5
 log 0
 logfile /home/vagrant/corpora/processed/src_trg_mgiza.log
@@ -28,7 +28,7 @@ m1 5
 m2 0
 m3 3
 m4 3
-m5 0
+m5 1
 m5p0 -1
 m6 0
 manlexfactor1 0
@@ -42,19 +42,19 @@ ml 101
 model1dumpfrequency 1
 model1iterations 5
 model23smoothfactor 0
-model2dumpfrequency 0
+model2dumpfrequency 1
 model2iterations 0
-model345dumpfrequency 0
-model3dumpfrequency 0
+model345dumpfrequency 1
+model3dumpfrequency 1
 model3iterations 3
 model4iterations 3
 model4smoothfactor 0.4
 model5iterations 0
 model5smoothfactor 0.1
 model6iterations 0
-nbestalignments 0
+nbestalignments 10
 ncpus 1
-nodumps 1
+nodumps 0
 nofiledumpsyn 1
 noiterationsmodel1 5
 noiterationsmodel2 0
@@ -67,7 +67,7 @@ nsmoothgeneral 0
 numberofiterationsforhmmalignmentmodel 5
 onlyaldumps 1
 outputfileprefix src_trg.dict
-outputpath
+outputpath results
 p 0
 p0 0.999
 peggedcutoff 0.03
