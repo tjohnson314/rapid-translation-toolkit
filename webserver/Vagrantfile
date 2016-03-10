@@ -1,17 +1,16 @@
 Vagrant.configure(2) do |config|
-  config.vm.box = "ubuntu/trusty64"
-  config.vm.synced_folder "data/", "/var/www/project"
-  config.vm.network "forwarded_port", guest: 3000, host: 3000
-  config.vm.provision "shell", inline: <<-SHELL
-    apt-get update
-    apt-get install -y g++ nginx postgresql-9.4
-    curl -sL https://deb.nodesource.com/setup_0.12 | sh
-    apt-get install -y git
-    apt-get install -y nodejs
-    su vagrant
-    mkdir /home/vagrant/node_modules
-    cd /var/www/project
-    ln -s /home/vagrant/node_modules/ node_modules
-    npm install -g bower
-  SHELL
+    config.vm.box = "ubuntu/trusty64"
+    config.vm.synced_folder "data/", "/var/www/project"
+    config.vm.synced_folder "tools/", "/home/vagrant/tools"
+    config.vm.network "forwarded_port", guest: 3000, host: 3000  # nodejs appserver
+    config.vm.network "forwarded_port", guest: 5984, host: 5984  # couchdb api
+    config.vm.provision "file", source: "files/linguiflow.conf", destination: "/home/vagrant/linguiflow.conf"
+#    config.librarian_puppet.puppetfile_dir = "puppet"
+    config.vm.provision "shell" do |s|
+        s.path = "bootstrap.sh"
+    end
+    config.vm.provision "puppet" do |p|
+        p.module_path = "puppet/modules"
+        p.manifests_path = "puppet/manifests"
+    end
 end
